@@ -9,7 +9,7 @@ html {
 }
 
 body {
-  @include neo;
+  @include akrobat;
   font-weight: 400;
 }
 
@@ -25,6 +25,11 @@ ul {
 
 li {
   list-style: none;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
 }
 
 a {
@@ -44,4 +49,18 @@ button {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 15px;
+
+  @include media-xl {
+    max-width: $break-lg;
+  }
+
+  @include media-lg {
+    max-width: $break-md;
+  }
+
+  @include media-md {
+    max-width: $break-sm;
+  }
 }
+
+// -------- BEM blocks --------

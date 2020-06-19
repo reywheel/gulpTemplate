@@ -1,9 +1,70 @@
-@mixin neo {
-  font-family: 'Neo Sans Pro', sans-serif;
+// ------- fonts -------
+
+@mixin akrobat {
+  font-family: 'Akrobat', sans-serif;
 }
 
-$xl: 1200px;
-$lg: 992px;
-$md: 768px;
-$sm: 576px;
-$xs: 320px;
+// ------- colors -------
+
+$accent: #ffba26;
+$text_dark: #3d3d3d;
+
+// ------- maket -------
+
+$maxWidth: 1230;
+$columns: 12;
+
+// ------- media breaks -------
+
+$break_xl: 1200px;
+$break_lg: 992px;
+$break_md: 768px;
+$break_sm: 576px;
+
+// ------- mixins -------
+
+@mixin size($n){
+  width: calc(100% / #{$columns} * #{$n});
+}
+
+@mixin media-xl(){
+  @media screen and (max-width: $break_xl){
+    @content;
+  }
+}
+
+@mixin media-lg(){
+  @media screen and (max-width: $break_lg){
+    @content;
+  }
+}
+
+@mixin media-md(){
+  @media screen and (max-width: $break_md){
+    @content;
+  }
+}
+
+@mixin media-sm(){
+  @media screen and (max-width: $break_sm){
+    @content;
+  }
+}
+
+@mixin media-xs(){
+  @media screen and (max-width: $break_xs){
+    @content;
+  }
+}
+
+@mixin custom-media($size) {
+  @media screen and (max-width: #{$size}px){
+    @content;
+  }
+}
+
+@mixin adaptive-font($pcSize, $mobSize) {
+  $addSize: $pcSize - $mobSize;
+  $maxWidth: $maxWidth - 320;
+  font-size: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth}));
+}
