@@ -57,7 +57,7 @@ $break_sm: 576px;
   }
 }
 
-@mixin custom-media($size) {
+@mixin media-custom($size) {
   @media screen and (max-width: #{$size}px){
     @content;
   }
